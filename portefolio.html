@@ -20,7 +20,7 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(150deg, #667eea 0%, #611e8b 100%);
             color: white;
             padding: 2rem 0;
         }
@@ -42,14 +42,11 @@
         }
 
         .info-perso h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            font-size: 34px;
+            margin-bottom: 12px;
         }
 
-        .info-perso p {
-            opacity: 0.9;
-            font-size: 1rem;
-        }
+        .info-perso p {opacity: 0.9;}
 
         a {
             color: white;
@@ -66,7 +63,7 @@
         .liens {
             display: flex;
             flex-direction:column;
-            gap: 1.1rem;
+            gap: 12px;
         }
 
         /* Navigation */
@@ -91,28 +88,28 @@
             border: none;
             padding: 1.2rem 2rem;
             cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
+            font-size: 16px;
+            font-weight: 400;
             color: #555;
             transition: all 0.3s;
             border-bottom: 3px solid transparent;
         }
 
         .nav-btn:hover {
-            background: #f8f8f8;
+            background: rgba(0, 0, 0, 0.03);
             color: #667eea;
         }
 
         .nav-btn.active {
             color: #667eea;
             border-bottom-color: #667eea;
-            background: #f8f8f8;
+            background: rgba(0, 0, 0, 0.03);
         }
 
-        /* Main Content */
+
         main {
             max-width: 1200px;
-            margin: 2rem auto;
+            margin: 28px auto;
             padding: 0 20px;
         }
 
@@ -146,6 +143,51 @@
             margin-bottom: 2rem;
         }
 
+        .content-block-astro{
+            display: flex;
+            flex-wrap: wrap-reverse;
+            gap: 1.5rem;
+            text-align: justify;
+        
+        }
+        .astro-aside{
+            flex: 1;
+            border: solid #666 1px;
+            border-radius: 8px;
+            padding: 1rem;
+            padding-top: 0;
+            margin-bottom: 1.5rem;
+            background: #f9f9f9;
+        }
+        .astro-aside p{
+            font-weight: 600;
+            font-size: medium;
+            text-align: center;
+            border-bottom: solid #666 1px;
+            padding: 0.2rem;
+            margin-bottom: 1rem;
+        }
+        .astro-aside img{
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;    
+        }
+        .astro-aside li{
+            list-style: none;
+        }
+        .content-block-astro p{flex: 5; font-size: large;}
+        .content-block-astro p video{
+            float: right;
+            max-width: 200px;
+            width: 30%;
+            height: auto;
+            margin : 0 0 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+
         .content-block h3 {
             color: #555;
             margin-bottom: 1rem;
@@ -163,7 +205,7 @@
             text-align: center;
         }
 
-        .image-container img {
+        .image-container img{
             max-width: 100%;
             height: auto;
             border-radius: 8px;
@@ -173,8 +215,8 @@
         /* Carousel */
         .carousel {
             position: relative;
-            max-width: 800px;
-            margin: 2rem auto;
+            width: 100%;
+            max-height: 400px;
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -193,10 +235,9 @@
             background: #000;
         }
 
-        .carousel-item img,
-        .carousel-item video {
+        .carousel-item img {
             max-width: 100%;
-            max-height: 500px;
+            max-height: 400px;
             width: auto;
             height: auto;
         }
@@ -221,7 +262,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -249,14 +289,14 @@
         <div class="header-content">
             <div class="info-perso">
                 <h1>Noah Bernard</h1>
-                <p>Lycéen en terminal - CTO/COO de <a href="https://start-scale.fr" target="_blank">Start & Scale</a></p>
+                <p>Lycéen en terminal - CTO/COO de <a href="https://start-scale.fr" target="_blank" style="text-decoration:underline;">Start & Scale</a></p>
                 <a href="mailto:noah.tom.bernard@gmail.com">noah.tom.bernard@gmail.com</a>
                 <a href="tel:+33769982048">+33 7 69 98 20 48</a>
             </div>
             <div class="liens">
-                <a href="https://github.com/Noah-b18" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; gap: 5px;"><svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>GitHub</a>
+                <a href="https://github.com/Noah-b18" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; gap: 8px;"><svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>GitHub</a>
                 
-                <a href="#" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; gap: 5px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><circle cx="8" cy="8" r="3" fill="currentColor" stroke="none"></circle><path d="M7 11l-1 3 2-1 2 1-1-3" stroke-width="1.5"></path></svg>Certification BIA</a> 
+                <a href="images/certificat_BIA.pdf" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; gap: 8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><circle cx="8" cy="8" r="3" fill="currentColor" stroke="none"></circle><path d="M7 11l-1 3 2-1 2 1-1-3" stroke-width="1.5"></path></svg>Certification BIA</a> 
 
                 <!-- <a href="#" target="_blank">CV</a> -->
             </div>
@@ -272,17 +312,26 @@
     </nav>
 
     <main>
-        <!-- Section Astronomie -->
+        <!-- Astronomie -->
         <section id="astro" class="section active">
             <h2>Astronomie & Astrophotographie</h2>
             
-            <div class="content-block">
-                <p>Passionné d'astronomie, je pratique l'observation et l'astrophotographie depuis plusieurs années. J'ai eu l'opportunité d'obtenir mon Brevet d'Initiation Aéronautique (BIA), qui m'a permis d'approfondir mes connaissances en aéronautique et en sciences de l'atmosphère.</p>
-            </div>
+            <div class="content-block-astro">
+                <aside class="astro-aside">
+                    <p>Mon télescope</p>
+                    <img src="images/telescope.jpg" alt="Mon télescope" style="max-width: 600px;">
+                    <li>
+                        <ul>Type : Newton</ul>
+                        <ul>Diamètre : 20mm</ul>
+                        <ul>Focale : 1000mm</ul>
+                    </li>
+                </aside>
 
-            <div class="image-container">
-                <img src="images/telescope.jpg" alt="Mon télescope" style="max-width: 600px;">
-                <p style="font-style: italic; color: #666; margin-top: 0.5rem;">Mon télescope</p>
+                <p> <video autoplay="true" loop="true" muted="true">
+                    <source src="images/video_saturne.mp4" type="video/mp4">Votre navigateur ne supporte pas la vidéo.
+                </video>Passionné d'astronomie, je pratique l'observation et l'astrophotographie depuis plus de 5 ans et demi. Cette pratique m'a permis de développer une expertise particulière dans l'imagerie du ciel profond et l'observation des phénomènes célestes. Je combine à la fois l'observation visuelle pour explorer les merveilles du cosmos et la photographie astronomique pour capturer des images détaillées des objets du ciel profond, des nébuleuses aux galaxies lointaines.</p>
+
+               
             </div>
 
             <div class="content-block">
@@ -293,30 +342,30 @@
             <div class="carousel" id="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item">
-                        <img src="images/astro1.jpg" alt="Observation 1">
+                        <img src="images/orion.jpg" alt="Nébuleuse d'Orion">
                     </div>
                     <div class="carousel-item">
-                        <img src="images/astro2.jpg" alt="Observation 2">
+                        <img src="images/dumbbell.jpg" alt="Nébuleuse Dumbbell">
                     </div>
                     <div class="carousel-item">
-                        <img src="images/astro3.jpg" alt="Observation 3">
+                        <img src="images/sombrero.jpg" alt="Galaxie du Sombrero">
                     </div>
                     <div class="carousel-item">
-                        <video controls>
-                            <source src="images/astro-video.mp4" type="video/mp4">
-                            Votre navigateur ne supporte pas la vidéo.
-                        </video>
+                        <img src="images/lune.JPG" alt="La Lune">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/comete.jpg" alt="Comète" comete >
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section Upérion -->
+        <!-- Upérion -->
         <section id="uperion" class="section">
             <h2>Projet Upérion - Modélisation de Mini-Fusée</h2>
             
             <div class="content-block">
-                <p>... Ce projet m'a permis de développer mes compétences en CAO et en simulation physique.</p>
+                <p>Le projet Upérion est un projet personnel ambitieux mêlant sciences physiques, ingénierie et programmation. J'ai conçu et modélisé une mini-fusée pour explorer mes passions scientifiques et techniques. L'objectif principal était de créer un modèle réaliste et fonctionnel, puis de simuler son vol pour prédire ses performances et optimiser sa trajectoire. Ce projet m'a permis de développer mes compétences en CAO, simulation physique, et programmation, en affrontant des défis techniques complexes et en apprenant de façon autonome.</p>
             </div>
 
             <div class="grid-2">
@@ -333,7 +382,7 @@
 
                 <div class="grid-item">
                     <h4>Simulation Unity</h4>
-                    <p>Développement d'une simulation de lancement sur Unity pour tester les performances théoriques de la fusée. La simulation intègre la physique réaliste du vol et permet de visualiser la trajectoire.</p>
+                    <p>Développement d'une simulation de lancement sur Unity pour tester les performances théoriques de la fusée. La simulation intègre la physique réaliste du vol et permet de visualiser la trajectoire et< le comportement de la fusée.</p>
                     <div class="image-container">
                         <img src="images/unity-sim1.jpg" alt="Simulation Unity 1">
                     </div>
@@ -354,7 +403,7 @@
             </div>
         </section>
 
-        <!-- Section Stage -->
+        <!-- Stage -->
         <section id="stage" class="section">
             <h2>Stage en Entreprise - Lucas à Bazas</h2>
             
@@ -363,45 +412,40 @@
                 
                 <p>Durant ce stage, j'ai eu l'occasion d'utiliser des logiciels de CAO professionnels tels qu'AutoCAD et LibreCAD. J'ai pu dessiner des pièces mécaniques et comprendre les contraintes techniques de la production industrielle. Cette immersion m'a également permis d'observer le processus complet de fabrication, de la conception à la réalisation.</p>
                 
-                <p>J'ai particulièrement apprécié l'accompagnement des équipes qui m'ont transmis leur expertise et leur rigueur dans le travail. Cette expérience a renforcé mon intérêt pour les sciences de l'ingénieur et la conception technique.</p>
+                <p>J'ai particulièrement apprécié l'accompagnement des équipes qui m'ont transmis leur expertise , pour certain leur ambition et leur rigueur dans le travail. Cette expérience a renforcé mon intérêt pour les sciences de l'ingénieur et la conception technique.</p>
             </div>
 
             <div class="image-container">
-                <img src="images/entreprise1.jpg" alt="Entreprise Lucas">
+                <img src="images/bureau.jpg" alt="Espace de travail">
             </div>
             
             <div class="grid-2">
                 <div class="image-container">
-                    <img src="images/entreprise2.jpg" alt="Atelier">
+                    <img src="images/atelier.jpg" alt="Atelier de travail">
                 </div>
                 <div class="image-container">
-                    <img src="images/entreprise3.jpg" alt="Équipements">
+                    <img src="images/decoupage.jpg" alt="Machine de découpe">
                 </div>
             </div>
         </section>
     </main>
 
     <script>
-        // Navigation entre sections
         function showSection(sectionId) {
-            // Masquer toutes les sections
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
             });
             
-            // Désactiver tous les boutons
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             
-            // Afficher la section sélectionnée
             document.getElementById(sectionId).classList.add('active');
             
-            // Activer le bouton correspondant
             event.target.classList.add('active');
         }
 
-        // Carrousel automatique
+        // Carrousel 
         let currentSlide = 0;
         const carousel = document.querySelector('.carousel-inner');
         const slides = document.querySelectorAll('.carousel-item');
