@@ -143,49 +143,95 @@
             margin-bottom: 2rem;
         }
 
-        .content-block-astro{
-            display: flex;
-            flex-wrap: wrap-reverse;
-            gap: 1.5rem;
-            text-align: justify;
-        
-        }
-        .astro-aside{
-            flex: 1;
-            border: solid #666 1px;
-            border-radius: 8px;
-            padding: 1rem;
-            padding-top: 0;
-            margin-bottom: 1.5rem;
-            background: #f9f9f9;
-        }
-        .astro-aside p{
-            font-weight: 600;
-            font-size: medium;
-            text-align: center;
-            border-bottom: solid #666 1px;
-            padding: 0.2rem;
-            margin-bottom: 1rem;
-        }
-        .astro-aside img{
-            border-radius: 8px;
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 1rem;    
-        }
-        .astro-aside li{
-            list-style: none;
-        }
-        .content-block-astro p{flex: 5; font-size: large;}
-        .content-block-astro p video{
-            float: right;
-            max-width: 200px;
-            width: 30%;
-            height: auto;
-            margin : 0 0 10px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+        /* --- SECTION ASTRONOMIE --- */
+.content-block-astro {
+    display: flex;
+    flex-wrap: wrap-reverse; /* L'aside passe en dessous sur petit écran */
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* Bloc Télescope */
+.astro-aside {
+    flex: 0 0 320px; /* Ne grandit pas, ne rétrécit pas, reste à 320px */
+    border: solid #ccc 1px;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.aside-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    border-bottom: solid #ccc 1px;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    color: #667eea;
+}
+
+.astro-aside img {
+    width: 100%;
+    max-height: 350px; /* Empêche l'image d'être trop haute */
+    object-fit: cover; /* Recadre l'image proprement si elle dépasse 350px de haut */
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.telescope-specs {
+    list-style-type: none; /* Enlève les puces par défaut */
+    padding: 0;
+    text-align: center;
+}
+
+.telescope-specs li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+/* Bloc Texte et Vidéo */
+.astro-text {
+    flex: 1; /* Prend tout l'espace disponible restant */
+    margin-top: 0; /* Au cas où un margin repousserait le bloc vers le bas */
+}
+
+.astro-text p {
+    font-size: 1.1rem;
+    text-align: left; /* Remplace "justify" par "left" pour enlever les trous blancs */
+    line-height: 1.7;
+    margin-top: 0; /* Colle le texte bien en haut de sa colonne */
+}
+
+.astro-text video {
+    float: right;
+    max-width: 250px;
+    width: 40%;
+    height: auto;
+    margin: 0 0 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* --- RESPONSIVITÉ (Mobiles et petites tablettes) --- */
+@media (max-width: 768px) {
+    .content-block-astro {
+        flex-direction: column-reverse; /* Force l'aside à passer en bas */
+    }
+
+    .astro-aside, .astro-text {
+        width: 100%; /* Prend toute la largeur disponible */
+    }
+
+    .astro-text video {
+        float: none; /* Désactive le flottement sur petit écran */
+        display: block;
+        width: 100%; /* La vidéo passe au-dessus du texte */
+        max-width: 100%;
+        margin: 0 0 1.5rem 0; /* Nettoie la marge à gauche */
+    }
+}
 
 
         .content-block h3 {
@@ -298,6 +344,8 @@
                 
                 <a href="images/certificat_BIA.pdf" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; gap: 8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><circle cx="8" cy="8" r="3" fill="currentColor" stroke="none"></circle><path d="M7 11l-1 3 2-1 2 1-1-3" stroke-width="1.5"></path></svg>Certification BIA</a> 
 
+                <a href="images/lettre_reco.pdf" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; gap: 8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><polygon points="12 7 13.5 10.5 17 11 14.5 13.5 15 17 12 15.5 9 17 9.5 13.5 7 11 10.5 10.5"></polygon></svg>Lettre de recommandation</a>
+
                 <!-- <a href="#" target="_blank">CV</a> -->
             </div>
         </div>
@@ -318,20 +366,22 @@
             
             <div class="content-block-astro">
                 <aside class="astro-aside">
-                    <p>Mon télescope</p>
-                    <img src="images/telescope.jpg" alt="Mon télescope" style="max-width: 600px;">
-                    <li>
-                        <ul>Type : Newton</ul>
-                        <ul>Diamètre : 20mm</ul>
-                        <ul>Focale : 1000mm</ul>
-                    </li>
+                    <p class="aside-title">Mon télescope</p>
+                    <img src="images/telescope.jpg" alt="Mon télescope">
+
+                    <ul class="telescope-specs">
+                        <li>Type : Newton</li>
+                        <li>Diamètre : 20mm</li> <li>Focale : 1000mm</li>
+                    </ul>
                 </aside>
 
-                <p> <video autoplay="true" loop="true" muted="true">
-                    <source src="images/video_saturne.mp4" type="video/mp4">Votre navigateur ne supporte pas la vidéo.
-                </video>Passionné d'astronomie, je pratique l'observation et l'astrophotographie depuis plus de 5 ans et demi. Cette pratique m'a permis de développer une expertise particulière dans l'imagerie du ciel profond et l'observation des phénomènes célestes. Je combine à la fois l'observation visuelle pour explorer les merveilles du cosmos et la photographie astronomique pour capturer des images détaillées des objets du ciel profond, des nébuleuses aux galaxies lointaines.</p>
-
-               
+                <div class="astro-text">
+                    <video autoplay loop muted playsinline>
+                        <source src="images/video_saturne.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la vidéo.
+                    </video>
+                    <p>Passionné d'astronomie, je pratique l'observation et l'astrophotographie depuis plus de 5 ans et demi. Cette pratique m'a permis de développer une expertise particulière dans l'imagerie du ciel profond et l'observation des phénomènes célestes. Je combine à la fois l'observation visuelle pour explorer les merveilles du cosmos et la photographie astronomique pour capturer des images détaillées des objets du ciel profond, des nébuleuses aux galaxies lointaines.</p>
+                </div>
             </div>
 
             <div class="content-block">
