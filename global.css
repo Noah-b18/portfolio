@@ -32,6 +32,19 @@ a:hover {
     gap: 12px;
 }
 
+pre {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    background-color: #1e1e1e;
+    color: #f8f8f2;
+    padding: 15px;
+    margin-top: 2rem;
+    border-radius: 8px;
+    overflow: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+}
 
 /* Listes */
 .ulMain {
@@ -425,7 +438,7 @@ main {
 
 .grid-item {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     background: #f9f9f9;
     padding: 1.5rem;

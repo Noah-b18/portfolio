@@ -24,7 +24,7 @@
 
                 <a href="asset/lettre_reco.pdf" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; gap: 8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><polygon points="12 7 13.5 10.5 17 11 14.5 13.5 15 17 12 15.5 9 17 9.5 13.5 7 11 10.5 10.5"></polygon></svg>Lettre de recommandation</a>
 
-                <!-- <a href="#" target="_blank">CV</a> -->
+                <a href="asset/cv.pdf" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; gap: 8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>CV</a>
             </div>
         </div>
     </header>
@@ -34,7 +34,7 @@
             <button class="nav-btn active" onclick="showSection('astro')">Astronomie</button>
             <button class="nav-btn" onclick="showSection('uperion')">Projet Upérion</button>
             <button class="nav-btn" onclick="showSection('stage')">Stage Entreprise</button>
-            <button class="nav-btn" onclick="showSection('web')">Projets Web</button>
+            <button class="nav-btn" onclick="showSection('web')">Start & Scale</button>
         </div>
     </nav>
 
@@ -154,6 +154,74 @@
                     <div>
                         <h4>Simulation Unity</h4>
                         <p>Développement d'une simulation de lancement sur Unity pour tester les performances théoriques de la fusée. La simulation intègre la physique réaliste du vol et permet de visualiser la trajectoire et le comportement de la fusée.</p>
+
+                        <p>Aperçu du code C# nécessaire pour le décollage de la fusée :</p>
+
+                        <pre><code>
+using UnityEngine;
+public class RocketPhysics : MonoBehaviour
+{
+    public float mass = 0.15f;
+    public float maxBurnTime = 0.2f;
+    public float burnTime =
+    private float timeSinceLaunch = 0f;
+    private Rigidbody rb;
+    private bool launched = 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        rb.mass = mass;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            launched = true;
+            timeSinceLaunch = 0f;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (!launched) return;
+    
+        timeSinceLaunch += Time.fixedDeltaTime;
+    
+        float thrust = GetThrust(timeSinceLaunch);
+    
+        Vector3 force = transform.up * thrust;
+    
+        rb.AddForce(force);
+    
+        ApplyDrag();
+    }
+
+    float GetThrust(float t)
+    {
+        if (t < maxBurnTime)
+            return Mathf.Lerp(0, 15f, t / 0.2f);
+        else if (t < burnTime)
+            return 5f;
+        else
+            return 0f;
+    }
+
+    void ApplyDrag()
+    {
+        float rho = 1.2f; // densité air
+        float Cd = 0.75f; // coef de trainée appro pour la fusée
+        float A = 0.00091f; // surface frontale pour un diamètre de 17mm
+    
+        Vector3 v = rb.linearVelocity;
+        float speed = v.magnitude;
+    
+        Vector3 drag = -0.5f * rho * Cd * A * speed * speed * v.normalized;
+    
+        rb.AddForce(drag);
+    }
+}
+                        </code></pre>
                     </div>
                     <div class="grid-content">
                         <img src="asset/images/uperion/dashboard.png" alt="Dashboard de Unity">
@@ -232,17 +300,63 @@
 
         <!-- Web -->
         <section id="web" class="section">
-            <h2>Développement Web</h2>
-                
+            
+            <h2>Start & Scale — La start-up pour les jeunes entrepreneurs</h2>
             <div class="content-block">
-                <h3>Voici quelques-uns de mes projets web :</h3>
+            
+                <p>
+                    Start & Scale est une startup que j’ai cofondée avec deux camarades de lycée, née d’une idée simple :
+                    rendre l’accompagnement entrepreneurial accessible aux jeunes qui veulent lancer leurs projets mais n’ont ni réseau ni structure.
+                </p>
+            
+                <p>
+                    À l’origine, le projet part d’un site vitrine assez classique, mais il évolue rapidement vers une logique plus ambitieuse :
+                    créer un écosystème complet permettant d’accéder à des services entrepreneuriaux à la demande.
+                    C’est cette évolution qui a donné naissance aux différentes versions du projet.
+                </p>
+            
+                <p>
+                    Mon rôle dans Start & Scale s’inscrit à la fois sur le plan technique et opérationnel en tant que CTO et COO.
+                    J’ai participé à la conception et au développement des premières versions du site, puis à la structuration de l’évolution vers une plateforme plus complexe.
+                </p>
+            
+                <p>
+                    Le projet a connu plusieurs itérations, notamment une V2 du site vitrine ainsi qu’une version de démonstration de la plateforme, hébergée sur Vercel, permettant de simuler les parcours utilisateurs et la logique de services.
+                </p>
+            
+                <p>
+                    Techniquement et fonctionnellement, ce projet m’a permis de travailler sur plusieurs axes concrets :
+                </p>
+            
+                <ul style="margin-left: 3rem;">
+                    <li>Développement front-end de sites complets et responsives</li>
+                    <li>Structuration d’une évolution produit (vitrine → plateforme)</li>
+                    <li>Mise en place de logiques de services à la demande (concept de crédits)</li>
+                    <li>Intégration de parcours utilisateur et formulaires dynamiques</li>
+                    <li>Déploiement et gestion de versions sur Vercel</li>
+                </ul>
+            
+                <h3 style="margin-top: 2rem;">Démonstrations</h3>
+            
                 <ul class="ulMain">
-                    <li class="liste"><strong>La bêta 2 du site de Start & Scale :</strong> <a href="https://site-start-scale-v2.vercel.app/" target="_blank">Site Start & Scale V2</a></li>
-                    <li class="liste"><strong>La bêta de la plateforme de Start & Scale :</strong> <a href="https://plateforme-start-scale.vercel.app/" target="_blank">Plateforme Start & Scale</a>
-                        
-                        <p>Ce site est une bêta non connectée à une base de données, donc toutes les informations de connexion sont simulées (non collectées).</p>
+                    <li class="liste">
+                        <strong>Site Start & Scale V2 :</strong>
+                        <a href="https://site-start-scale-v2.vercel.app/" target="_blank">Accéder à la démo ↗</a>
+                    </li>
+                
+                    <li class="liste">
+                        <strong>Prototype plateforme :</strong>
+                        <a href="https://plateforme-start-scale.vercel.app/" target="_blank">Accéder à la démo ↗</a>
+                        <p>
+                            Version de démonstration simulant l’expérience utilisateur (aucune base de données réelle connectée).
+                        </p>
                     </li>
                 </ul>
+            
+                <p style="margin-top: 1rem;">
+                    Aujourd’hui, le projet est mis en suspens, mais il reste une expérience structurante dans ma manière d’aborder un produit :
+                    passer d’une idée à une architecture technique concrète, avec des contraintes réelles de conception, de déploiement et d’expérience utilisateur.
+                </p>
             </div>
         </section>
     </main>
